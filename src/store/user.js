@@ -21,17 +21,12 @@ export const useUserStore = defineStore("user", {
       }
     },
     async signIn(email, password){
-      try {
         const { user, error } = await supabase.auth.signIn({ email: email, password: password })
         if (error) throw error
-        alert(`error signin ${email}, ${password}, ${error}`)
         if(user){
           this.user = user;
           console.log(user)
         }
-      } catch (error) {
-        alert("error signIn", error.error_description || error.message)
-      } 
     },
     async signOut(){
       try {

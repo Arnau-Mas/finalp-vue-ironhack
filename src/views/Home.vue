@@ -1,12 +1,6 @@
 <template>
   <section>
-      <ul>
-          <li>a</li>
-          <li>b</li>
-          <li>c</li>
-          <li>d</li>
-          <li>e</li>
-      </ul>
+      <h3>{{user.user.email}}</h3>
       <button @click="signOutApp">Sign Out</button>
   </section>
 </template>
@@ -16,8 +10,8 @@
     import { useRouter } from 'vue-router';
     const router = useRouter();
     const user = useUserStore();
-    function signOutApp(){
-        user.signOut();
+    async function signOutApp(){
+        await user.signOut();
         router.push({ path: '/auth' });
     }
 </script>

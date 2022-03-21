@@ -39,10 +39,10 @@
       }
     }
   }
-  function submitData(){
+   async function submitData(){
     checkAllData();
     try{
-      user.signUp(emailData.value, password1Data.value)
+      await user.signUp(emailData.value, password1Data.value)
     }catch(err){
       console.log(err)
     }
