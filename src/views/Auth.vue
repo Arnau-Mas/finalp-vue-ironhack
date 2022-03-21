@@ -16,17 +16,4 @@ onMounted(async () => {
 </script>
 
 <style>
-  .auth-section{
-    display: flex;
-    
-  }
-  
-  form{
-    width:50%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    background-color: aquamarine;
-    padding: 1rem;
-  }
 </style>

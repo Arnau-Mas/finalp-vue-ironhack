@@ -7,12 +7,17 @@
           <li>d</li>
           <li>e</li>
       </ul>
+      <button @click="signOutApp">Sign Out</button>
   </section>
 </template>
 
 <script setup>
-
-onMounted(async () => {
-    console.log("onMounted funct")
-})
+    import {useUserStore} from '../store/user.js';
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
+    const user = useUserStore();
+    function signOutApp(){
+        user.signOut();
+        router.push({ path: '/auth' });
+    }
 </script>
