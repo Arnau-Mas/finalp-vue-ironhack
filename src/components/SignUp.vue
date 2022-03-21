@@ -8,11 +8,11 @@
         <input v-model="password1Data" type="password" name="password" id="password" required>
         <label for="confirmPass">Confirm Password:</label>
         <input v-model="password2Data" v-on:blur="checkSecondPass" type="password" name="confirmPass" id="confirmPass" required>
-        <p v-if="askSameValue">*Pleas, introduce the same password</p>
+        <p v-if="askSameValue">*Pleas, introduce the same password</p> <!-- puc ficar logica computed -->
         <button @click="submitData">Register</button>
       </div>
       <RouteBut :route="route" :buttonText="buttonText" />
-    <!--  <p v-if="formCompleted">Pleas, go to your <a href="/">mail</a> and click the link to activate your account.</p> -->
+     <p v-if="statusMessage">{{noticeMessage}}</p>
     </section>
 </template>
 
@@ -28,7 +28,8 @@
   let password1Data = ref("");
   let password2Data = ref("");
   let askSameValue = ref(false);
-  /* let formCompleted = ref(false); */
+  let statusMessage = ref(false);
+  let noticeMessage = ref("Check your mail and click the link to activate your account.")
 
   function checkSecondPass(){
     if(password1Data.value && password2Data.value){
@@ -41,14 +42,18 @@
   }
    async function submitData(){
     checkAllData();
-    try{
+    try{ //try catch es la millor opcio??
       await user.signUp(emailData.value, password1Data.value)
+      emailData.value = "";
+      password1Data.value = "";
+      password2Data.value = "";
+      //fer que 
     }catch(err){
       console.log(err)
     }
-    
   }
-  function checkAllData(){
+
+  function checkAllData(){ //Millorar la lògica
     if(emailData.value && password1Data.value && password2Data.value){
       if(password2Data.value != password1Data.value){
         askSameValue.value = true;
@@ -62,7 +67,7 @@
   };
 
 
-//Fer una funcio computed perque fagi un pop up quan fagi matching de les 2 contrassenyes en cas de que no siguin iguals? O espero a que li doni al botó de submit? (pq tampoc sé si això ja ho implementaria un formulari importat d'una llibreria externa)
+//Fer una funcio computed perque fagi un pop up quan fagi matching de les 2 contrassenyes en cas de que no siguin iguals? O espero a que li doni al botó de submit? (viable? llibreria externa?)
 </script>
 
 <style>
