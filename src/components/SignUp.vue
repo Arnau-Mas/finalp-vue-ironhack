@@ -3,7 +3,7 @@
         <div>
         <h1>Sign Up</h1>
         <label for="email">Email:</label>
-        <input v-model="emailData" type="email" name="email" id="email" required>
+        <input v-model="emailData" type="email" name="email" id="email" pattern="	^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
         <label for="password">Password:</label>
         <input v-model="password1Data" type="password" name="password" id="password" required>
         <label for="confirmPass">Confirm Password:</label>
@@ -45,14 +45,12 @@
    async function submitData(){
       let response = checkAllData();
       if(response.value=== 1){
-        console.log("ha passat lo de response ===1")
         try{
           await user.signUp(emailData.value, password1Data.value)
           emailData.value = "";
           password1Data.value = "";
           password2Data.value = "";
         }catch(err){
-          console.log("ha entrat en el catch de submitData")
           noticeMessage = "There has been some error. Pleas, try it later.";
           statusMessage.value = true;
         }
@@ -63,7 +61,6 @@
     let res = ref(1);
     statusMessage.value = false;
     if(emailData.value && password1Data.value && password2Data.value){
-      console.log("entrem al if de totes les dades")
       if(password2Data.value != password1Data.value){
         askSameValue.value = true;
         res = -1;
