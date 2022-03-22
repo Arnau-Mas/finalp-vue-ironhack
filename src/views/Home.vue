@@ -11,7 +11,11 @@
     const router = useRouter();
     const user = useUserStore();
     async function signOutApp(){
-        await user.signOut();
-        router.push({ path: '/auth' });
+        try{
+            await user.signOut();
+            router.push({ path: '/auth' });
+        }catch(error){
+            console.log(error)
+        }
     }
 </script>
