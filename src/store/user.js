@@ -36,7 +36,7 @@ export const useUserStore = defineStore("user", {
                     console.log(user);
                 }
             } catch (error) {
-                console.log(error);
+                throw error;
             }
         },
         async signOut() {
