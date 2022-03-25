@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="route">{{buttonText}}</router-link>
+    <router-link class="bg-white hover:bg-emerald-100 text-emerald-600 font-semibold py-2 px-4 border border-emerald-400 rounded shadow" :to="route">{{buttonText}}</router-link>
 </template>
 
 <script setup>
@@ -10,5 +10,4 @@ defineProps({
 </script>
 
 <style>
-
 </style>
