@@ -24,9 +24,10 @@
             </div>
 
             <div>
-              <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+              <button :class="classBtn">
                 <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                  <LockClosedIcon class="h-5 w-5 text-cyan-500 group-hover:text-cyan-400" aria-hidden="true" />
+                  <LockClosedIcon v-if="isShown" class="h-5 w-5 text-cyan-500 group-hover:text-cyan-400" aria-hidden="true" />
+                  <LockOpenIcon v-if="!isShown" class="h-5 w-5 text-green-500 group-hover:text-green-400" aria-hidden="true" />
                 </span>
                 Sign in
               </button>
@@ -56,6 +57,7 @@
   import RouteBut from "./RouteBut.vue";
   import AlertMessage from "./AlertMessage.vue"
   import { LockClosedIcon } from '@heroicons/vue/solid'
+  import { LockOpenIcon } from '@heroicons/vue/solid';
 
   
   import router from '../router';
@@ -63,12 +65,13 @@
   const user = useUserStore();
   let route = "/auth/sign-up";
   let buttonText = "Sign Up";
-
+  let isShown = ref(true)
   let doesntExist = ref(false);
   let emailData = ref("");
   let passwordData = ref("");
   let alertMessage = ref("Introduce valid email or password.")
-
+  let classBtn = ref("signInBtn")
+  
   async function joinApp(){
     doesntExist.value = false;
     let checkEmail = validateEmail();
@@ -76,7 +79,11 @@
         try{
           await user.signIn(emailData.value, passwordData.value)
           doesntExist.value = false;
-          router.push({path:"/"})
+          setTimeout(() => {
+            router.push({path:"/"})
+          }, 600);
+            isShown.value = false;
+            classBtn.value = "signInConfirmed"    
         }catch(err){
             doesntExist.value = true;
         }
@@ -84,7 +91,6 @@
         doesntExist.value = true;
     }
   }
-
 
   function validateEmail() {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailData.value)) {

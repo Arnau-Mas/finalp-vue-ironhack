@@ -34,7 +34,7 @@
             </div>
 
             <div>
-              <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+              <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-cyan-500">
                 Sign up
               </button>
             </div>
@@ -54,12 +54,20 @@
 </template>
 
 <script setup>
-  import RouteBut from "../components/RouteBut.vue"
-  import AlertMessage from "./AlertMessage.vue";
+  //vue properties
   import {ref} from "vue"
-  import {useUserStore} from '../store/user.js'
-  const user = useUserStore();
 
+  //components
+  import RouteBut from "../components/RouteBut.vue";
+  import AlertMessage from "./AlertMessage.vue";
+
+  //stores
+  import {useUserStore} from '../store/user.js';
+  const user = useUserStore();
+  
+
+
+  //variables
   let route = "/auth";
   let buttonText ="Sign In";
   let emailData = ref("");
@@ -69,6 +77,7 @@
   let alertMessage =ref("");
   let msgClass = ref("")
 
+  //functions
   function validateEmail() {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailData.value)) {
       return 1
@@ -91,7 +100,6 @@
 
    async function submitData(){
       let response = checkAllData();
-      console.log("response", response.value)
       if(response.value=== 1){
         try{
           await user.signUp(emailData.value, password1Data.value)

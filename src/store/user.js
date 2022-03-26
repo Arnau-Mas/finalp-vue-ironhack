@@ -10,7 +10,6 @@ export const useUserStore = defineStore("user", {
             this.user = user;
         },
         async signUp(email, password) {
-          try{
             const { user, error } = await supabase.auth.signUp({
               email: email,
               password: password,
@@ -20,32 +19,18 @@ export const useUserStore = defineStore("user", {
                 this.user = user;
                 console.log(this.user);
             }
-          }catch(error){
-            throw error;
-          }
         },
         async signIn(email, password) {
-            try {
-                const { user, error } = await supabase.auth.signIn(
-                    { email: email, password: password } 
-                  /*{redirectTo:"http:/localhost:3000/"} */
-                );
-                if (error) throw error;
-                if (user) {
-                    this.user = user;
-                    console.log(user);
-                }
-            } catch (error) {
-                throw error;
+            const { user, error } = await supabase.auth.signIn({ email: email, password: password } );
+            if (error) throw error;
+            if (user) {
+                this.user = user;
+                console.log(user);
             }
         },
         async signOut() {
-            try {
-                let { error } = await supabase.auth.signOut();
-                if (error) throw error;
-            } catch (error) {
-                console.log(error);
-            }
+            let { error } = await supabase.auth.signOut();
+            if (error) throw error;
         },
         persist: {
             enabled: true,
