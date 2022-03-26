@@ -81,7 +81,7 @@
           doesntExist.value = false;
           setTimeout(() => {
             router.push({path:"/"})
-          }, 600);
+          }, 1000);
             isShown.value = false;
             classBtn.value = "signInConfirmed"    
         }catch(err){

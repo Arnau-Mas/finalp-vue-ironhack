@@ -8,7 +8,7 @@
             <p class="mt-2 text-center text-sm text-gray-600">The best<span class="font-medium text-cyan-600"> To-do app</span> in the world!
             </p>
           </div>
-          <form @submit.prevent="submitData" class="mt-8 space-y-6" novalidate="true">
+          <form  :hidden="registerStatus"  @submit.prevent="submitData" class="mt-8 space-y-6" novalidate="true">
 
             <input type="hidden" name="remember" value="true" />
 
@@ -37,15 +37,12 @@
               <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-cyan-500">
                 Sign up
               </button>
-            </div>
-            <AlertMessage :messageClass="msgClass" :alertMessage="alertMessage" v-if="showMessage"/>
+            </div>            
           </form>
+          <AlertMessage :messageClass="msgClass" :alertMessage="alertMessage" v-if="showMessage"/>
            <div class="flex justify-between">
               <div class="text-sm">
                   <RouteBut :route="route" :buttonText="buttonText" />
-              </div>
-              <div class="text-sm">
-                <a href="#" class="font-medium text-cyan-600 hover:text-cyan-500"> Forgot your password? </a>
               </div>
             </div>
         </div>
@@ -76,7 +73,7 @@
   let showMessage = ref(false);
   let alertMessage =ref("");
   let msgClass = ref("")
-
+  let registerStatus = ref(false);
   //functions
   function validateEmail() {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailData.value)) {
@@ -107,6 +104,7 @@
           password1Data.value = "";
           password2Data.value = "";
           msgClass.value = "validMsg";
+          registerStatus.value = true;
           alertMessage.value ="Pleas, check your email to activate your account."
           showMessage.value = true;
         }catch(err){
