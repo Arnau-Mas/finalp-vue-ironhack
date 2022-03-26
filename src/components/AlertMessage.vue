@@ -1,12 +1,12 @@
 <template>
      <div :class="messageClass" role="alert">
-          <span class="block sm:inline">{{errorMessage}}</span>
+          <span class="block sm:inline">{{alertMessage}}</span>
     </div>
 </template>
 
 <script setup>
     defineProps({
-        errorMessage: String,
+        alertMessage: String,
         messageClass: String
     })
 </script>

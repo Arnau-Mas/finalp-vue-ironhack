@@ -21,7 +21,7 @@ export const useUserStore = defineStore("user", {
                 console.log(this.user);
             }
           }catch(error){
-            console.log(error)
+            throw error;
           }
         },
         async signIn(email, password) {

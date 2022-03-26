@@ -16,6 +16,7 @@
 onMounted(async () => {
     console.log("onMounted funct")
 }) */
+
 </script>
 
 <style>
