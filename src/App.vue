@@ -1,5 +1,5 @@
 <template>
-  <section class="container w-full">
+  <section>
     <router-view class="app-main" /> <!-- your routes will load inside of these tags -->    
   </section>
 </template>

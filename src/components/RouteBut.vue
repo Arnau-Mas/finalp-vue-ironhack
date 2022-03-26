@@ -3,10 +3,10 @@
 </template>
 
 <script setup>
-defineProps({
-  route: String,
-  buttonText:String
-})
+  defineProps({
+    route: String,
+    buttonText:String
+  })
 </script>
 
 <style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bei h-screen">
+  <div> <!--  class="bg-gray-200 h-screen 	align-items: center" -->
       <router-view></router-view>
   </div>
 </template>
@@ -19,7 +19,4 @@ onMounted(async () => {
 </script>
 
 <style>
-  .bei{
-    background-color: #F0F2F5;
-  }
 </style>

@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.6",
     "@supabase/supabase-js": "^1.31.1",
     "autoprefixer": "^10",
     "pinia": "^2.0.12",
