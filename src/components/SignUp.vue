@@ -127,31 +127,25 @@
       if(checkEmail==-1){
         printErr("errorMsg", "Pleas, introduce valid email.", true), res.value = -1;
       }else{
-        console.log("entrem a l'ultim else")
         let checkPass = validatePasswords();
-        console.log("checkPass:", checkPass)
         switch(checkPass){
           case "minLength": {
-            console.log("minLength")
             printErr("errorMsg", "Password length must be at least 6 characters.", true);
             res.value = -1;
           }
           break;
           case "samePass": {
-            console.log("samePass")
             printErr("errorMsg", "Introduce the same password.", true);
              res.value=-1;
           }
           break;
           case "ok": {
             showMessage.value = false;
-            console.log("okkkk")
           }
           break;
         }
       }
     }
-    console.log("retornem", res.value)
     return res;
   };
 
