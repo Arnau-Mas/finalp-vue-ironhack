@@ -21,7 +21,7 @@
         </section>
         <section v-else class="flex flex-col items-center w-full">
             <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>
-            <p v-else>You don't have tasks already!</p>
+            <p v-else>You don't have tasks yet!</p>
         </section>
 
      
@@ -63,7 +63,7 @@
 
 <script setup>
     //vue properties
-    import { ref } from 'vue';
+    import { onBeforeMount, ref } from 'vue';
     import { onMounted } from "vue";
     import { useRouter } from 'vue-router';
     //components
@@ -80,8 +80,8 @@
     let userId = user.user.id;
     let taskText = ref("");
     let taskDate = ref("00:00");
-    let taskCompleted = ref(false)
-    let taskArchived = ref(false)
+    let taskCompleted = ref(false);
+    let taskArchived = ref(false);
     let noError = ref(true)
     
     //OnMounted + functions onmounted
@@ -91,8 +91,9 @@
 
     async function getTasks(){
         try{ //preguntar alex si esta logica es correcta
-            await tasks.fetchTasks();
-            allTasks.value = tasks.tasks;
+            let res = await tasks.fetchTasks();
+            allTasks.value = res;
+            /* allTasks.value = tasks.tasks; */
         }catch(err){
             console.log("error de GeneralTasks getTasks", err);
         }
@@ -102,6 +103,7 @@
     function addTask(){
         try{
             tasks.insertTask(userId, taskText.value, taskDate.value, taskCompleted.value, taskArchived.value);
+            cleanInput();
         }catch(err){
             console.log("error a addTask() de generalTasks", err);
         }

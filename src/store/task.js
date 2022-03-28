@@ -13,6 +13,7 @@ export const useTaskStore = defineStore("tasks", {
         if(error) throw error;
         if(tasks){
           this.tasks = tasks;
+          return this.tasks; //y si no las hay hacer otra cosa
         } 
     },
     async insertTask(userId, title, time, isComplete, isArchived){
