@@ -3,19 +3,7 @@
         <section class="w-full text-center">
             <h3 class="pt-10 text-sm pb-5">{{userName}}</h3>
         </section>
-        <section class="flex flex-col items-center w-full mb-6">
-            <div class="border-b flex items-center border-cyan-500 py-2 px-2 w-full max-w-4xl">
-                <input autofocus v-model="taskText" type="text" class="focus:ring-0 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:border-none" placeholder="Write your task" aria-label="Full name">
-                <p class="text-cyan-500">|</p>
-                <input v-model="taskDate" type="time" class=" text-center focus:ring-0 appearance-none bg-transparent border-none text-gray-700 w-32 py-1  leading-tight">
-                <button v-tooltip="'Add Task'"  @click="addTask"  class="flex-shrink-0 bg-cyan-500 hover:bg-cyan-700 border-cyan-500 hover:border-cyan-700 text-sm border-4 text-white px-2 rounded" type="button">+</button>
-                <button @click="cleanInput" class="flex-shrink-0 border-transparent border-4 text-cyan-500 hover:text-cyan-800 text-sm py-1 ml-2 rounded" type="button">
-                Cancel
-                </button>
-            </div>
-        </section>
-
-        <!-- SECTION TASKS -->
+        <NewTask/>
         <section v-if="allTasks.length && noError" class="flex flex-col items-center w-full">
             <TaskItem v-for="task in allTasks" :key="task.id" :taskTextProp="task.title" :taskTimeProp="task.time" />
         </section>
@@ -99,20 +87,6 @@
         }
     }
 
-    //Functions
-    function addTask(){
-        try{
-            tasks.insertTask(userId, taskText.value, taskDate.value, taskCompleted.value, taskArchived.value);
-            cleanInput();
-        }catch(err){
-            console.log("error a addTask() de generalTasks", err);
-        }
-    }
-
-    function cleanInput(){
-        taskText.value = "";
-        taskDate.value = "00:00"
-    }
 </script>
 
 <style>
