@@ -11,7 +11,7 @@ export const useTaskStore = defineStore("tasks", {
         .select("*")
         .order("id", { ascending: false });
         if(error) throw error;
-        if(data){
+        if(tasks){
           this.tasks = tasks;
         } 
     },
@@ -22,8 +22,9 @@ export const useTaskStore = defineStore("tasks", {
         { user_id: userId, title:title, time:time, is_complete:isComplete, is_archieved:isArchived}
       ]);
       if(error) throw error;
+      
       if(data){
-        this.tasks = tasks;
+        this.tasks.push(...data); //fem spread operator perque data ens retorna un objecte dins d'un array i nomes volem posar l'objecte a dins de tasks
       }
     }
   },

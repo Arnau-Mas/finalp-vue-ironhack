@@ -9,19 +9,24 @@
                 <p class="text-cyan-500">|</p>
                 <input v-model="taskDate" type="time" class=" text-center focus:ring-0 appearance-none bg-transparent border-none text-gray-700 w-32 py-1  leading-tight">
                 <button  @click="addTask"  class="flex-shrink-0 bg-cyan-500 hover:bg-cyan-700 border-cyan-500 hover:border-cyan-700 text-sm border-4 text-white px-2 rounded" type="button">+</button>
-                <button @click="cleanInput" class="flex-shrink-0 border-transparent border-4 text-cyan-500 hover:text-cyan-800 text-sm py-1 px-2 rounded" type="button">
+                <button @click="cleanInput" class="flex-shrink-0 border-transparent border-4 text-cyan-500 hover:text-cyan-800 text-sm py-1 ml-2 rounded" type="button">
                 Cancel
                 </button>
             </div>
         </section>
 
         <!-- SECTION TASKS -->
-        <section class="flex flex-col items-center w-full">
-            <TaskItem :propText="'Provant les props'" :taskTime="'12:00'" />
+        <section v-if="allTasks.length && noError" class="flex flex-col items-center w-full">
+            <TaskItem v-for="task in allTasks" :key="task.id" :taskTextProp="task.title" :taskTimeProp="task.time" />
+        </section>
+        <section v-else class="flex flex-col items-center w-full">
+            <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>
+            <p v-else>You don't have tasks already!</p>
         </section>
 
-        <footer class="flex flex-col items-center w-full">
+     
         <!-- NO BORRAR -->
+           <!-- <footer class="flex flex-col items-center w-full">
             <div  class="bg-cyan-100 border-l-8 flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-4xl">
                 <p type="text" class="focus:ring-0 appearance-none bg-transparent border-none w-full mr-3 py-1 px-2 leading-tight focus:border-none" value="Exemple task en un input text (NO BORRAR)" aria-label="Full name">Exemple task en un P</p>
                 <p class="text-cyan-500">|</p>
@@ -52,14 +57,14 @@
                     </svg>
                 </button>
             </div>
-        </footer>
+        </footer> -->
     </div>
 </template>
 
 <script setup>
     //vue properties
     import { ref } from 'vue';
-    import { onMounted } from 'vue-demi';
+    import { onMounted } from "vue";
     import { useRouter } from 'vue-router';
     //components
     import NewTask from '../components/NewTask.vue';
@@ -70,19 +75,35 @@
     //variables
     let user = useUserStore();
     let tasks = useTaskStore();
-    let allTasks = tasks.tasks;
+    let allTasks = ref("");
     let userName = user.user.email;
     let userId = user.user.id;
     let taskText = ref("");
     let taskDate = ref("00:00");
     let taskCompleted = ref(false)
     let taskArchived = ref(false)
+    let noError = ref(true)
+    
+    //OnMounted + functions onmounted
+    onMounted(()=>{
+        getTasks();
+    })
 
+    async function getTasks(){
+        try{ //preguntar alex si esta logica es correcta
+            await tasks.fetchTasks();
+            allTasks.value = tasks.tasks;
+        }catch(err){
+            console.log("error de GeneralTasks getTasks", err);
+        }
+    }
+
+    //Functions
     function addTask(){
         try{
-            tasks.insertTask(userId, taskTest.value, taskDate.value, taskCompleted.value, taskArchived.value);
+            tasks.insertTask(userId, taskText.value, taskDate.value, taskCompleted.value, taskArchived.value);
         }catch(err){
-            console.log(err);
+            console.log("error a addTask() de generalTasks", err);
         }
     }
 
