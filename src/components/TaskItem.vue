@@ -1,5 +1,5 @@
 <template>
-   <div class="taskClass">
+   <div class="taskClass provantHover">
         <input type="text" class="focus:ring-0 appearance-none bg-transparent border-none w-full mr-3 py-1 px-2 leading-tight focus:border-none" :value="taskTextProp" aria-label="Full name">
         <p class="text-cyan-500">|</p>
         <input type="time" :value="taskTimeProp" class=" text-center focus:ring-0 appearance-none bg-transparent border-none w-32 py-1  leading-tight">
@@ -21,11 +21,12 @@
         taskTextProp: String,
         taskTimeProp: String
     })
-
-    function changeClass(){
-
-    }
 </script>
 
 <style>
+
+.taskClass:hover *{
+    cursor: pointer;
+}
+
 </style>

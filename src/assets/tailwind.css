@@ -34,5 +34,5 @@
 }
 
 .taskClass:hover{
-    @apply bg-cyan-200 border-l-8 shadow-lg flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-4xl
+    @apply bg-cyan-200 border-l-8 shadow-lg flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-4xl 
 }
