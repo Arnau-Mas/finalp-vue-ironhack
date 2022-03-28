@@ -8,7 +8,7 @@
                 <input autofocus v-model="taskText" type="text" class="focus:ring-0 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:border-none" placeholder="Write your task" aria-label="Full name">
                 <p class="text-cyan-500">|</p>
                 <input v-model="taskDate" type="time" class=" text-center focus:ring-0 appearance-none bg-transparent border-none text-gray-700 w-32 py-1  leading-tight">
-                <button  @click="addTask"  class="flex-shrink-0 bg-cyan-500 hover:bg-cyan-700 border-cyan-500 hover:border-cyan-700 text-sm border-4 text-white px-2 rounded" type="button">+</button>
+                <button v-tooltip="'Add Task'"  @click="addTask"  class="flex-shrink-0 bg-cyan-500 hover:bg-cyan-700 border-cyan-500 hover:border-cyan-700 text-sm border-4 text-white px-2 rounded" type="button">+</button>
                 <button @click="cleanInput" class="flex-shrink-0 border-transparent border-4 text-cyan-500 hover:text-cyan-800 text-sm py-1 ml-2 rounded" type="button">
                 Cancel
                 </button>
