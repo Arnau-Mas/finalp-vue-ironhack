@@ -1,5 +1,5 @@
 <template>
-   <div  class="bg-cyan-100 border-l-8 flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-4xl">
+   <div class="taskClass">
         <input type="text" class="focus:ring-0 appearance-none bg-transparent border-none w-full mr-3 py-1 px-2 leading-tight focus:border-none" :value="taskTextProp" aria-label="Full name">
         <p class="text-cyan-500">|</p>
         <input type="time" :value="taskTimeProp" class=" text-center focus:ring-0 appearance-none bg-transparent border-none w-32 py-1  leading-tight">
@@ -21,6 +21,10 @@
         taskTextProp: String,
         taskTimeProp: String
     })
+
+    function changeClass(){
+
+    }
 </script>
 
 <style>
