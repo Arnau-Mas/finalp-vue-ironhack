@@ -50,7 +50,7 @@
     const navigation = [
     { name: 'Tasks', href: '#', current: true },
     { name: 'Archived', href: '#', current: false },
-    { name: 'Deleted', href: '#', current: false },
+    { name: 'Completed', href: '#', current: false },
     ]
     async function signOutApp(){
     try{

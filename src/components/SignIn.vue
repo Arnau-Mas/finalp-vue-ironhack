@@ -102,7 +102,4 @@
 </script>
 
 <style>
-  p{
-    color:red;
-  }
 </style>

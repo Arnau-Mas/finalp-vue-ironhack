@@ -6,11 +6,25 @@ export const useTaskStore = defineStore("tasks", {
   }),
   actions: {
     async fetchTasks() {
-      const { data: tasks } = await supabase
+      const { data: tasks, error } = await supabase
         .from("tasks")
         .select("*")
         .order("id", { ascending: false });
-      this.tasks = tasks;
+        if(error) throw error;
+        if(data){
+          this.tasks = tasks;
+        } 
     },
+    async insertTask(userId, title, time, isComplete, isArchived){
+      const { data, error } = await supabase
+      .from('tasks')
+      .insert([
+        { user_id: userId, title:title, time:time, is_complete:isComplete, is_archieved:isArchived}
+      ]);
+      if(error) throw error;
+      if(data){
+        this.tasks = tasks;
+      }
+    }
   },
 });
