@@ -9,6 +9,7 @@ import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useUserStore } from './store/user.js'
+import 'floating-vue/dist/style.css'
 
 const router = useRouter()
 const userStore = useUserStore()

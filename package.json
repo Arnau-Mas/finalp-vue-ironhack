@@ -11,6 +11,7 @@
     "@heroicons/vue": "^1.0.6",
     "@supabase/supabase-js": "^1.31.1",
     "autoprefixer": "^10",
+    "floating-vue": "^2.0.0-beta.11",
     "pinia": "^2.0.12",
     "pinia-plugin-persist": "^1.0.0",
     "postcss": "^8",
