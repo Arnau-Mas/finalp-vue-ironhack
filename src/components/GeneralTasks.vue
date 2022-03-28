@@ -1,17 +1,16 @@
 <template>
-    <div class="flex flex-col items-center mt-2">
-        <section class="w-full text-center">
-            <h3 class="pt-10 text-sm pb-5">{{userName}}</h3>
-        </section>
+    <div class="flex flex-col items-center mt-20">
         <NewTask/>
         <section v-if="allTasks.length && noError" class="flex flex-col items-center w-full">
             <TaskItem v-for="task in allTasks" :key="task.id" :taskTextProp="task.title" :taskTimeProp="task.time" />
         </section>
         <section v-else class="flex flex-col items-center w-full">
             <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>
-            <p v-else>You don't have tasks yet!</p>
+            <TaskItem :taskTextProp="'YOU DON\'T HAVE TASKS YET. WRITE IT!'" v-else />
         </section>
-
+        <section class="w-full text-center">
+            <h3 class="pt-10 text-sm pb-5">{{userName}}</h3>
+        </section>
      
         <!-- NO BORRAR -->
            <!-- <footer class="flex flex-col items-center w-full">

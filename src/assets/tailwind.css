@@ -36,3 +36,11 @@
 .taskClass:hover{
     @apply bg-cyan-200 border-l-8 shadow-lg flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-4xl 
 }
+
+.newTaskClass{
+    @apply border-2 rounded-md flex items-center border-sky-500 py-1 px-2 w-full max-w-xl
+}
+
+.newTaskClass:hover{
+    @apply bg-white
+}
