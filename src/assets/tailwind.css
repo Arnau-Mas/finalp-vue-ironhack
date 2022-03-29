@@ -60,3 +60,7 @@
 .writeYourTask{
     @apply bg-cyan-100 border border-cyan-400 flex text-cyan-700 px-4 py-6 rounded relative w-full max-w-xl
 }
+
+.writeYourTaskGreen{
+    @apply bg-green-100 border border-green-400 flex text-green-700 px-4 py-6 rounded relative w-full max-w-xl
+}

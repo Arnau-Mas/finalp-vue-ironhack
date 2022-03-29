@@ -49,7 +49,7 @@
     const user = useUserStore();
     const navigation = [
     { name: 'Tasks', href: '/', current: true },
-    { name: 'Archieved', href: 'archieved', current: false },
+    { name: 'Archived', href: 'archieved', current: false },
     { name: 'Completed', href: 'completed', current: false },
     ]
     async function signOutApp(){

@@ -5,10 +5,7 @@
         </section>
         <section v-else class="flex flex-col items-center w-full">
             <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>
-            <TaskItem :taskTextProp="'YOU DON\'T HAVE TASKS YET. WRITE IT!'" v-else />
-        </section>
-        <section class="w-full text-center">
-            <h3 class="pt-10 text-sm pb-5">{{userName}}</h3>
+            <AlertMessage v-else :messageClass="'writeYourTaskGreen'" :alertMessage='"There are no tasks here."'></AlertMessage>
         </section>
     </div>
 </template>
@@ -20,7 +17,8 @@
 
     //components
     import TaskItem from '../components/TaskItem.vue';
-    
+    import AlertMessage from "./AlertMessage.vue"
+
     //stores
     import {useUserStore} from '../store/user.js';
     import {useTaskStore} from '../store/task.js';
