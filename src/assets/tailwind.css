@@ -56,3 +56,7 @@
 .newTaskClassError{
     @apply border-2 rounded-md flex items-center border-red-500 py-1 px-2 w-full max-w-xl bg-red-100
 }
+
+.writeYourTask{
+    @apply bg-cyan-100 border border-cyan-400 flex text-cyan-700 px-4 py-6 rounded relative w-full max-w-xl
+}

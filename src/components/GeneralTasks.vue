@@ -6,10 +6,9 @@
         </section>
         <section v-else class="flex flex-col items-center w-full">
             <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>
-            <p v-else>NO TASKS.</p>
-        </section>
-        <section class="w-full text-center">
-            <h3 class="pt-10 text-sm pb-5">{{userName}}</h3>
+            <AlertMessage v-else :messageClass="'writeYourTask'" :alertMessage='"There are no tasks. Write up here!"'><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7l4-4m0 0l4 4m-4-4v18" />
+</svg></AlertMessage>
         </section>
     </div>
 </template>
@@ -24,17 +23,18 @@
     //stores
     import {useUserStore} from '../store/user.js';
     import {useTaskStore} from '../store/task.js';
+import AlertMessage from './AlertMessage.vue';
     //variables
     let user = useUserStore();
     let tasks = useTaskStore();
         let allTasks =ref("");
-    if(tasks.tasks !=null){
-        allTasks = tasks.tasks;
-    }
     let userName = user.user.email;
     let noError = ref(true)
     
     //OnMounted + functions onmounted
+    if(tasks.tasks !=null){
+        allTasks = tasks.tasks;
+    }
     onMounted(()=>{
         getTasks();
     })
@@ -48,9 +48,8 @@
         }catch(err){
             noError.value = false;
         }
+     }
     }
-    }
-
 </script>
 
 <style>

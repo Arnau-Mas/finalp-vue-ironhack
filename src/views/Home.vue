@@ -1,6 +1,9 @@
 <template>
   <div>
     <Nav/>
+    <section class="w-full text-center">
+        <h3 class="pt-2 text-sm text-gray-400">{{userName}}</h3>
+    </section>
     <router-view></router-view>
   </div>
 </template>
@@ -16,6 +19,7 @@
     import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
     const router = useRouter();
     const user = useUserStore();
+    let userName = user.user.email;
     const navigation = [
     { name: 'Tasks', href: '/', current: true },
     { name: 'Archieved', href: 'archieved', current: false },
