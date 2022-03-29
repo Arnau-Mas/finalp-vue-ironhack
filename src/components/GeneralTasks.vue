@@ -1,8 +1,8 @@
 <template>
-    <div class="flex flex-col items-center mt-20">
+    <div class=" ml-2 mr-2 flex flex-col items-center mt-20">
         <NewTask/>
         <section v-if="allTasks.length && noError" class="flex flex-col items-center w-full">
-            <TaskItem v-for="task in allTasks" :key="task.id" :taskTextProp="task.title" :taskTimeProp="task.time" />
+            <TaskItem class="provantHover" v-for="task in allTasks" :key="task.id" :taskTextProp="task.title" :taskTimeProp="task.time" :taskIdProp="task.id" />
         </section>
         <section v-else class="flex flex-col items-center w-full">
             <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>

@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col items-center w-full mb-6">
         <div class="newTaskClass">
-            <input @focus="changePlaceholder" @focusout="changePlaceholder" v-model="taskText" type="text" class="focus:ring-0 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 border-0 px-2 leading-tight focus:border-none" :placeholder="placeholderText" aria-label="Full name">
+            <input @focus="changePlaceholder" @focusout="changePlaceholder" v-model="taskText" type="text" maxlength="" class="focus:ring-0 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 border-0 px-2 leading-tight focus:border-none" :placeholder="placeholderText" aria-label="Full name">
             <p class="text-sky-500">|</p>
             <input v-model="taskDate" type="time" class="text-center focus:ring-0 appearance-none bg-transparent border-none text-gray-700 w-32 py-1  leading-tight">
             <button v-tooltip="'Add Task'"  @click="addTask"  class="flex-shrink-0 bg-sky-500 hover:bg-sky-700 border-sky-500 hover:border-sky-700 text-sm border-4 text-white px-2 rounded" type="button">+</button>

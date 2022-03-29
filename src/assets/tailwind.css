@@ -30,11 +30,11 @@
 }
 
 .taskClass{
-    @apply bg-cyan-100 border-l-8 flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-2xl focus:bg-cyan-500
+    @apply bg-cyan-100 border-l-8 flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-3xl focus:bg-cyan-500
 }
 
 .taskClass:hover{
-    @apply bg-cyan-200 border-l-8 shadow-lg flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-2xl 
+    @apply bg-cyan-200 border-l-8 shadow-lg flex items-center rounded-md border-cyan-500 py-2 mt-2 px-2 w-full max-w-3xl 
 }
 
 .newTaskClass{
