@@ -17,7 +17,7 @@
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? ' text-white border bg-cyan-500 shadow-sm' : 'text-gray-500 hover:bg-cyan-100', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+              <router-link  v-for="item in navigation" :to="item.href" :key="item.name" :class="[item.current ? ' text-white border bg-cyan-500 shadow-sm' : 'text-gray-500 hover:bg-cyan-100', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
     </div>
     <DisclosurePanel class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-cyan-600 text-white' : 'text-gray-500 hover:bg-cyan-100 hover:text-gray-500', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :to="item.href" :class="[item.current ? 'bg-cyan-600 text-white' : 'text-gray-500 hover:bg-cyan-100 hover:text-gray-500', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
       </div>
     </DisclosurePanel>
   </Disclosure>
@@ -48,9 +48,9 @@
     const router = useRouter();
     const user = useUserStore();
     const navigation = [
-    { name: 'Tasks', href: '#', current: true },
-    { name: 'Archived', href: '#', current: false },
-    { name: 'Completed', href: '#', current: false },
+    { name: 'Tasks', href: '/', current: true },
+    { name: 'Archieved', href: 'archieved', current: false },
+    { name: 'Completed', href: 'completed', current: false },
     ]
     async function signOutApp(){
     try{

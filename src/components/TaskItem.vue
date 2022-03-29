@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-    import {ref} from 'vue'
+import {ref} from 'vue'
     import {useTaskStore} from '../store/task';
     let tasks = useTaskStore();
     let classesString = ref("taskClass provantHover")
@@ -28,14 +28,19 @@
     })
 
     async function isCompleted(idTask){
+        classesString.value="taskClassCompleted";
         try{
             let res = await tasks.updateTask(idTask, "isCompleted");
             tasks.tasksCompleted.push(...res);
             let indexTask = tasks.tasks.findIndex(task => task.id==idTask);
-            tasks.tasks.splice(indexTask, 1)
+                setTimeout(() => {
+                tasks.tasks.splice(indexTask, 1)
+                }, 50);
             
         }catch(err){
             console.log(err)
+            classesString.value="taskClassError"
+            classesString.value="taskClass provantHover" 
         }
     }
         async function isArchieved(idTask){
@@ -43,8 +48,11 @@
             let res = await tasks.updateTask(idTask, "isArchieved");
             tasks.tasksArchieved.push(...res);
             let indexTask = tasks.tasks.findIndex(task => task.id==idTask);
-            tasks.tasks.splice(indexTask, 1)
-            
+            classesString.value+=" animate-bounce delay-100"
+            setTimeout(() => {
+               tasks.tasks.splice(indexTask, 1)
+            }, 400);
+
         }catch(err){
             console.log(err)
         }

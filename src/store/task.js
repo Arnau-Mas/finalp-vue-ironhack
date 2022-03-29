@@ -50,7 +50,7 @@ export const useTaskStore = defineStore("tasks", {
       if(parameterToSet=="isArchieved"){
         const { data, error } = await supabase
         .from('tasks')
-        .update({is_complete:true})
+        .update({is_archieved:true})
         .match({id:taskId})
         if(data){
           return data

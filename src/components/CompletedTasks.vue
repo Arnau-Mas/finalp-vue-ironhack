@@ -1,6 +1,5 @@
 <template>
     <div class=" ml-2 mr-2 flex flex-col items-center mt-20">
-        <NewTask/>
         <section v-if="allTasks.length && noError" class="flex flex-col items-center w-full">
             <TaskItem class="provantHover" v-for="task in allTasks" :key="task.id" :taskTextProp="task.title" :taskTimeProp="task.time" :taskIdProp="task.id" />
         </section>
@@ -15,12 +14,13 @@
 </template>
 
 <script setup>
-    //vue properties
-    import { onBeforeMount, ref } from 'vue';
+        //vue properties
+    import {  ref } from 'vue';
     import { onMounted } from "vue";
+
     //components
-    import NewTask from '../components/NewTask.vue';
     import TaskItem from '../components/TaskItem.vue';
+    
     //stores
     import {useUserStore} from '../store/user.js';
     import {useTaskStore} from '../store/task.js';
@@ -28,8 +28,8 @@
     let user = useUserStore();
     let tasks = useTaskStore();
         let allTasks =ref("");
-    if(tasks.tasks !=null){
-        allTasks = tasks.tasks;
+    if(tasks.tasksCompleted !=null){
+        allTasks = tasks.tasksCompleted;
     }
     let userName = user.user.email;
     let noError = ref(true)
@@ -40,11 +40,10 @@
     })
 
     async function getTasks(){
-        if(tasks.tasks == null){
-        try{ //preguntar alex si esta logica es correcta
+        if(tasks.tasksCompleted == null){
+        try{
             let res = await tasks.fetchTasks();
-            allTasks.value = res;
-            /* allTasks.value = tasks.tasks; */
+            allTasks.value = tasks.tasksCompleted;
         }catch(err){
             console.log("error de GeneralTasks getTasks", err);
         }
@@ -54,8 +53,5 @@
 </script>
 
 <style>
-input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
-    
-}
+
 </style>
