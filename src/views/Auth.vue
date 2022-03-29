@@ -12,10 +12,7 @@
 
   let route = ref("/auth/sign-up");
   let buttonText = "Sign Up";
-/* 
-onMounted(async () => {
-    console.log("onMounted funct")
-}) */
+
 
 </script>
 

@@ -52,3 +52,7 @@
 .newTaskClass:hover{
     @apply bg-white
 }
+
+.newTaskClassError{
+    @apply border-2 rounded-md flex items-center border-red-500 py-1 px-2 w-full max-w-xl bg-red-100
+}

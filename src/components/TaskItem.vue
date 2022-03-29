@@ -38,7 +38,6 @@ import {ref} from 'vue'
                 }, 50);
             
         }catch(err){
-            console.log(err)
             classesString.value="taskClassError"
             classesString.value="taskClass provantHover" 
         }
@@ -54,7 +53,8 @@ import {ref} from 'vue'
             }, 400);
 
         }catch(err){
-            console.log(err)
+            classesString.value="taskClassError"
+            classesString.value="taskClass provantHover" 
         }
     }
 </script>

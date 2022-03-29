@@ -6,7 +6,7 @@
         </section>
         <section v-else class="flex flex-col items-center w-full">
             <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>
-            <TaskItem :taskTextProp="'YOU DON\'T HAVE TASKS YET. WRITE IT!'" v-else />
+            <p v-else>NO TASKS.</p>
         </section>
         <section class="w-full text-center">
             <h3 class="pt-10 text-sm pb-5">{{userName}}</h3>
@@ -46,7 +46,7 @@
             allTasks.value = res;
             /* allTasks.value = tasks.tasks; */
         }catch(err){
-            console.log("error de GeneralTasks getTasks", err);
+            noError.value = false;
         }
     }
     }

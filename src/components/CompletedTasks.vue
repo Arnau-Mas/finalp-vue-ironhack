@@ -45,7 +45,7 @@
             let res = await tasks.fetchTasks();
             allTasks.value = tasks.tasksCompleted;
         }catch(err){
-            console.log("error de GeneralTasks getTasks", err);
+           noError.value = false;
         }
     }
     }

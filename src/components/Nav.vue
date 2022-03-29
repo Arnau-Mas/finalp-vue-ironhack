@@ -57,7 +57,7 @@
         await user.signOut();
         router.push({ path: '/auth' });
     }catch(error){
-        console.log(error)
+        router.push({path:'/'})
     }
 }
 </script>
