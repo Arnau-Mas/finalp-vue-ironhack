@@ -47,6 +47,18 @@ export const useTaskStore = defineStore("tasks", {
           throw error
         }
       }
-    }
+      if(parameterToSet=="isArchieved"){
+        const { data, error } = await supabase
+        .from('tasks')
+        .update({is_complete:true})
+        .match({id:taskId})
+        if(data){
+          return data
+        }
+        if(error){
+          throw error
+        }
+      }
+    },
   },
 });
