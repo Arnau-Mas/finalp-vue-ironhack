@@ -3,7 +3,7 @@
       <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"> <!-- bg-gray-200 -->
         <div class="bg-white rounded-lg p-10 max-w-md w-full space-y-8"> <!-- shadow-md  -->
           <div>
-            <img class="mx-auto h-12 w-auto" src="../assets/todo-logo.png" alt="Workflow" />
+            <img class="mx-auto h-12 w-auto" src="../assets/todo-logo.png" alt="todoapp" />
             <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign up!</h2>
             <p class="mt-2 text-center text-sm text-gray-600">The best<span class="font-medium text-cyan-600"> To-do app</span> in the world!
             </p>

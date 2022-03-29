@@ -12,8 +12,8 @@
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-         <a href="/"><img class="block lg:hidden h-8 w-auto" src="../assets/todo-letters-logo.png" alt="Todo Nada" /></a>   
-            <a href="/"><img class="hidden lg:block h-8 w-auto" src="../assets/todo-letters-logo.png" alt="Workflow" /></a> 
+         <a href="/"><img class="block lg:hidden h-8 w-auto" src="../assets/todo-letters-logo.png" alt="todoapp" /></a>   
+            <a href="/"><img class="hidden lg:block h-8 w-auto" src="../assets/todo-letters-logo.png" alt="todoapp" /></a> 
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
