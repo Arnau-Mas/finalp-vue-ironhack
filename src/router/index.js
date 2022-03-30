@@ -6,15 +6,29 @@ import SignUp from "../components/SignUp.vue"
 import GeneralTasks from "../components/GeneralTasks.vue"
 import ArchievedTasks from "../components/ArchievedTasks.vue"
 import CompletedTasks from "../components/CompletedTasks.vue"
-
+let allRoutes = ["", "auth", "sign-up", "archieved", "completed"];
 const routes = [
   { path: "/auth", 
+    beforeEnter: (to, from) => {
+      if(to.name == "sign-up"){
+        return {name:""}
+      }
+      let exist = allRoutes.find(route => route == to.name);
+      if(!exist){
+        return {name:""}
+      }
+    },
     component: Auth,
     children:[
       { path: "", component: SignIn},
       { path: "sign-up", component: SignUp},
     ] },
   { path: "/", component: Home,
+    beforeEnter: (to, from) => {
+      if(to.name == "archieved" || to.name=="completed"){
+        return {name:""}
+      }
+    },
     children:[
       { path: "", component: GeneralTasks},
       { path: "archieved", component: ArchievedTasks},

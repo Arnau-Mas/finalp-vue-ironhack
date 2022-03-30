@@ -40,13 +40,13 @@
 
     async function getTasks(){
         if(tasks.tasksArchieved == null){
-        try{
-            let res = await tasks.fetchTasks();
-            allTasks.value = tasks.tasksArchieved;
-        }catch(err){
-            noError.value = false;
+            try{
+                let res = await tasks.fetchTasks();
+                allTasks.value = tasks.tasksArchieved;
+            }catch(err){
+                noError.value = false;
+            }
         }
-    }
     }
 
 </script>
