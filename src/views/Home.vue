@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <section>
     <Nav/>
     <section class="w-full text-center">
         <h3 class="pt-2 text-sm text-gray-400">{{userName}}</h3>
     </section>
     <router-view></router-view>
-  </div>
+  </section>
 </template>
 
 <script setup>

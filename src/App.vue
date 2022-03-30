@@ -1,5 +1,5 @@
 <template>
-  <section class="h-max min-h-screen pb-16">
+  <section class="h-max min-h-screen">
     <router-view class="app-main" /> <!-- your routes will load inside of these tags -->    
   </section>
 </template>

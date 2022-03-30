@@ -1,7 +1,7 @@
 <template>
-  <div> <!--  class="bg-gray-200 h-screen 	align-items: center" -->
+  <section class="sm:bg-grayfons h-max min-h-screen"> <!--  class="bg-gray-200 h-screen 	align-items: center" -->
       <router-view></router-view>
-  </div>
+  </section>
 </template>
 
 <script setup>
