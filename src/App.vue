@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="h-max min-h-screen pb-16">
     <router-view class="app-main" /> <!-- your routes will load inside of these tags -->    
   </section>
 </template>
@@ -30,3 +30,10 @@ onMounted(async () => {
   }
 })
 </script>
+
+<style>
+  .sectionMain {
+    background-color: blueviolet;
+    height: 100vh;
+  }
+</style>
