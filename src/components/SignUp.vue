@@ -23,13 +23,13 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                       Password
                     </label>
-                    <input v-model="password1Data" minlength="6" maxlength="20" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm" type="password" name="password" id="password" placeholder="⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎" required>
+                    <input v-model="password1Data" minlength="6" maxlength="20" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm" type="password" name="password" id="password" placeholder="*************" required>
                   </div>
                   <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPass">
                       Confirm password
                     </label>
-                    <input maxlength="20" v-model="password2Data" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm" type="password" name="confirmPass" id="confirmPass" placeholder="⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎" minlength="6" required>
+                    <input maxlength="20" v-model="password2Data" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 focus:z-10 sm:text-sm" type="password" name="confirmPass" id="confirmPass" placeholder="*************" minlength="6" required>
                   </div>
             </div>
 
