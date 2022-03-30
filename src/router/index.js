@@ -11,11 +11,11 @@ const routes = [
   { path: "/auth", 
     beforeEnter: (to, from) => {
       if(to.name == "sign-up"){
-        return {name:""}
+        return {name:"/auth"}
       }
       let exist = allRoutes.find(route => route == to.name);
       if(!exist){
-        return {name:""}
+        return {name:"/auth"}
       }
     },
     component: Auth,
