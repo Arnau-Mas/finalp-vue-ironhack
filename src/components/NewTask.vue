@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col items-center w-full mb-6">
+    <section class="flex flex-col items-center w-full mobile:mb-1 mb-6">
         <article :class="divClass">
             <input @focus="changePlaceholder" @focusout="changePlaceholder" v-model="taskText" type="text" maxlength="" class="focus:ring-0 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 border-0 px-2 leading-tight focus:border-none" :placeholder="placeholderText" aria-label="Full name">
             <p class="text-sky-500">|</p>
