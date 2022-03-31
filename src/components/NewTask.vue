@@ -3,7 +3,7 @@
         <article :class="divClass">
             <input @focus="changePlaceholder" @focusout="changePlaceholder" v-model="taskText" type="text" maxlength="" class="focus:ring-0 appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 border-0 px-2 leading-tight focus:border-none" :placeholder="placeholderText" aria-label="Full name">
             <p class="text-sky-500">|</p>
-            <input v-model="taskDate" type="time" class="text-center focus:ring-0 appearance-none bg-transparent border-none text-gray-700 w-32 sm:mt-3 sm:pl-2 py-1 px-0 leading-tight">
+            <input v-model="taskDate" type="time" class="text-center focus:ring-0 appearance-none bg-transparent border-none text-gray-700 w-32 mobile:mt-3 mobile:pl-2 py-1 px-0 leading-tight">
             <button v-tooltip="'Add Task'"  @click="addTask"  class="flex-shrink-0 bg-sky-500 hover:bg-sky-700 border-sky-500 hover:border-sky-700 text-sm border-4 text-white px-2 rounded" type="button">+</button>
             <button @click="cleanInput" class="fullCancel flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 ml-2 rounded" type="button">
             Cancel
