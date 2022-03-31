@@ -5,8 +5,11 @@
             <p class="text-sky-500">|</p>
             <input v-model="taskDate" type="time" class="text-center focus:ring-0 appearance-none bg-transparent border-none text-gray-700 w-32 py-1 px-0 leading-tight">
             <button v-tooltip="'Add Task'"  @click="addTask"  class="flex-shrink-0 bg-sky-500 hover:bg-sky-700 border-sky-500 hover:border-sky-700 text-sm border-4 text-white px-2 rounded" type="button">+</button>
-            <button @click="cleanInput" class="flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 ml-2 rounded" type="button">
+            <button @click="cleanInput" class="fullCancel flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 ml-2 rounded" type="button">
             Cancel
+            </button>
+            <button @click="cleanInput" class="shortCancel flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 ml-2 rounded" type="button">
+            X
             </button>
         </article>
         <article v-if="errorMessageBool" class="mt-4 w-full max-w-xl">
@@ -36,6 +39,7 @@
     let divClass = ref("newTaskClass")
     let errorMessage = ref("Sorry. Has been some error. Try it later.")
     let placeholderText = ref("✏️ Write your task");
+    let textCancelBtn = ref("Cancel");
     //Functions
     function changePlaceholder(){
         errorMessageBool.value = false;
@@ -66,7 +70,26 @@
         taskText.value = "";
         taskDate.value = "00:00"
     }
+
+    function changeCancelBtn(){
+        let mql = window.matchMedia(mediaQueryString)
+        if (window.matchMedia("(min-width: 400px)").matches) {
+            console.log("entra")
+        } else {
+            console.log("sale")
+        }
+        return "a"
+    }
 </script>
 
 <style>
+    .shortCancel{
+        display: none;
+        padding: 0.4rem;
+    }
+
+    @media (max-width: 639px) {
+    .shortCancel { display: inline-block; }
+    .fullCancel{ display: none; }
+}
 </style>
