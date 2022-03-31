@@ -8,8 +8,10 @@
             <button @click="cleanInput" class="fullCancel flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 ml-2 rounded" type="button">
             Cancel
             </button>
-            <button @click="cleanInput" class="shortCancel flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 ml-2 rounded" type="button">
-            X
+            <button @click="cleanInput" :class="newClassBtn" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
             </button>
         </article>
         <article v-if="errorMessageBool" class="mt-4 w-full max-w-xl">
@@ -22,7 +24,7 @@
     import {useUserStore} from '../store/user.js';
     import {useTaskStore} from "../store/task.js"
     import AlertMessage from "./AlertMessage.vue"
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue';
     
     //components
     import TaskItem from '../components/TaskItem.vue';
@@ -40,6 +42,8 @@
     let errorMessage = ref("Sorry. Has been some error. Try it later.")
     let placeholderText = ref("✏️ Write your task");
     let textCancelBtn = ref("Cancel");
+    // let newClassBtn = ref("hidden")
+    
     //Functions
     function changePlaceholder(){
         errorMessageBool.value = false;
@@ -49,6 +53,8 @@
             placeholderText.value = "✏️ Write your task"
         }
     }
+    
+    
     function addTask(){
         if(!taskText.value){
             divClass.value ="newTaskClassError"
@@ -71,15 +77,15 @@
         taskDate.value = "00:00"
     }
 
-    function changeCancelBtn(){
-        let mql = window.matchMedia(mediaQueryString)
-        if (window.matchMedia("(min-width: 400px)").matches) {
-            console.log("entra")
+    //Computeds
+    const newClassBtn = computed(() => {
+        if(taskText.value){
+            return 'cancelButtonClass visible'
         } else {
-            console.log("sale")
+            return 'hidden'
         }
-        return "a"
-    }
+    })
+
 </script>
 
 <style>
@@ -88,7 +94,7 @@
         padding: 0.4rem;
     }
 
-    @media (max-width: 639px) {
+    @media (max-width: 639px) { /* aixo ho puc fer amb sm:shortCancel etc */
     .shortCancel { display: inline-block; }
     .fullCancel{ display: none; }
 }

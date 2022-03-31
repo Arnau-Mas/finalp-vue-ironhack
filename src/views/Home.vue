@@ -25,13 +25,13 @@
     { name: 'Archieved', href: 'archieved', current: false },
     { name: 'Completed', href: '#', current: false },
     ]
-    async function signOutApp(){
-    try{
-        await user.signOut();
-        router.push({ path: '/auth' });
-    }catch(error){
-        router.push({path:'/'})
-    }
+        async function signOutApp(){
+        try{
+            await user.signOut();
+            router.push({ path: '/auth' });
+        }catch(error){
+            router.push({path:'/'})
+        }
 }
 
 </script>

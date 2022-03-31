@@ -35,7 +35,7 @@ import {ref} from 'vue'
             let indexTask = tasks.tasks.findIndex(task => task.id==idTask);
                 setTimeout(() => {
                 tasks.tasks.splice(indexTask, 1)
-                }, 50);
+                }, 100);
             
         }catch(err){
             classesString.value="taskClassError"

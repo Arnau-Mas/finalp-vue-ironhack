@@ -4,7 +4,7 @@
         <section v-if="allTasks.length && noError" class="flex flex-col items-center w-full">
             <TaskItem v-for="task in allTasks" :key="task.id" :taskTextProp="task.title" :taskTimeProp="task.time" :taskIdProp="task.id" />
         </section>
-        <section v-else class="flex flex-col items-center w-full">
+        <section v-else class="flex flex-col items-center w-full mt-2">
             <p v-if="!noError">There has been some error. Pleas, reload or try it later.</p>
             <AlertMessage v-else :messageClass="'writeYourTask'" :alertMessage='"There are no tasks. Write up here!"'><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M8 7l4-4m0 0l4 4m-4-4v18" />
