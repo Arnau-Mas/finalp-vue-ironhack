@@ -68,4 +68,3 @@
 .cancelButtonClass{
     @apply flex-shrink-0 border-transparent border-4 text-red-400 hover:text-red-600 text-sm py-1 ml-2 rounded
 }
-

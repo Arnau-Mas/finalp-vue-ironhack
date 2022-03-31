@@ -80,9 +80,9 @@
     //Computeds
     const newClassBtn = computed(() => {
         if(taskText.value){
-            return 'cancelButtonClass visible'
+            return 'shortCancel cancelButtonClass visible'
         } else {
-            return 'hidden'
+            return 'shortCancel hidden'
         }
     })
 

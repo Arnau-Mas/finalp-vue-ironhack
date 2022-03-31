@@ -17,7 +17,7 @@
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <router-link  v-for="item in navigation" :to="item.href" :key="item.name" :class="[item.current ? ' text-white border bg-cyan-500 shadow-sm' : 'text-gray-500 hover:bg-cyan-100', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+              <router-link @click="changeNavButton"  v-for="item in navigation" :to="item.href" :key="item.name" :class="[item.current ? ' text-white border bg-cyan-500 shadow-sm' : 'text-gray-500 hover:bg-cyan-100', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
             </div>
           </div>
         </div>
@@ -52,14 +52,17 @@
     { name: 'Archived', href: 'archieved', current: false },
     { name: 'Completed', href: 'completed', current: false },
     ]
-    async function signOutApp(){
-    try{
-        await user.signOut();
-        router.push({ path: '/auth' });
-    }catch(error){
-        router.push({path:'/'})
-    }
-}
+      async function signOutApp(){
+      try{
+          await user.signOut();
+          router.push({ path: '/auth' });
+      }catch(error){
+          router.push({path:'/'})
+      }
+  }
+  function changeNavButton(e){
+     e.target.class = activeButton(e.target.href) 
+  }
 </script>
 
 <style>
