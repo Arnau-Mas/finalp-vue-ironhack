@@ -32,8 +32,5 @@ onMounted(async () => {
 </script>
 
 <style>
-  .sectionMain {
-    background-color: blueviolet;
-    height: 100vh;
-  }
+
 </style>
