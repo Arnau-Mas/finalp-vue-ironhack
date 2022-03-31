@@ -50,7 +50,7 @@ import {ref} from 'vue'
             classesString.value+=" animate-bounce delay-100"
             setTimeout(() => {
                tasks.tasks.splice(indexTask, 1)
-            }, 400);
+            }, 50);
 
         }catch(err){
             classesString.value="taskClassError"
