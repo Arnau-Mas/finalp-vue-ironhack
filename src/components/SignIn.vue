@@ -75,7 +75,7 @@
   async function joinApp(){
     doesntExist.value = false;
     let checkEmail = validateEmail();
-    if(checkEmail==1){
+    if(checkEmail==1 && passwordData.value.length>=6){
         try{
           await user.signIn(emailData.value, passwordData.value)
           doesntExist.value = false;
