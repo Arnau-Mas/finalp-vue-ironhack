@@ -2,7 +2,7 @@
    <div :class="classesString">
         <p class="focus:ring-0 appearance-none bg-transparent border-none w-full mr-3 py-1 px-2 leading-tight focus:border-none overflow-hidden" aria-label="Full name">{{taskTextProp}}</p>
         <p class="text-cyan-500">|</p>
-        <input type="date" :value="taskTimeProp" class=" text-center focus:ring-0 appearance-none text-sm sm:text-md bg-transparent border-none w-32 py-1  leading-tight">
+        <input type="time" :value="taskTimeProp" class=" text-center focus:ring-0 appearance-none text-sm sm:text-md bg-transparent border-none w-32 py-1 leading-tight">
         <button @click="isArchieved(taskIdProp)" v-tooltip="'Archive'" class="flex-shrink-0 border-transparent border-4 text-gray-500 hover:text-cyan-800 text-sm rounded" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />

@@ -23,11 +23,11 @@
     //stores
     import {useUserStore} from '../store/user.js';
     import {useTaskStore} from '../store/task.js';
-import AlertMessage from './AlertMessage.vue';
+    import AlertMessage from './AlertMessage.vue';
     //variables
     let user = useUserStore();
     let tasks = useTaskStore();
-        let allTasks =ref("");
+    let allTasks =ref("");
     let userName = user.user.email;
     let noError = ref(true)
     
