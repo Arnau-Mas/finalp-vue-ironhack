@@ -35,8 +35,11 @@
     </div>
     <DisclosurePanel class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :to="item.href" :class="[item.current ? 'bg-cyan-600 text-white' : 'text-gray-500 hover:bg-cyan-100 hover:text-gray-500', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+        <DisclosureButton as="a" @click="changeNavMobile(1)" :class="classMblBtn1" aria-current='page' >Tasks</DisclosureButton>
+         <DisclosureButton  as="a" @click="changeNavMobile(2)" :class="classMblBtn2" aria-current= 'page' >Archived</DisclosureButton>
+          <DisclosureButton as="a" @click="changeNavMobile(3)" :class="classMblBtn3" aria-current='page' >Completed</DisclosureButton>
       </div>
+
     </DisclosurePanel>
   </Disclosure>
 </template>
@@ -57,6 +60,9 @@
     let classBtn1 = ref("navCurrent")
     let classBtn2 = ref("navNotCurrent")
     let classBtn3 = ref("navNotCurrent")
+    let classMblBtn1 = ref("navMblCurrent")
+    let classMblBtn2 = ref("navMblNotCurrent")
+    let classMblBtn3 = ref("navMblNotCurrent")
       async function signOutApp(){
       try{
           await user.signOut();
@@ -91,6 +97,37 @@
         classBtn3.value = "navNotCurrent";
      }
   }}
+  function changeNavMobile(id){
+        switch(id){
+      case 1: {
+         classMblBtn1.value = "navMblCurrent";
+         classMblBtn2.value = "navMblNotCurrent";
+         classMblBtn3.value = "navMblNotCurrent";
+         router.push('/')
+     }
+     break;
+      case 2: {
+         classMblBtn1.value = "navMblNotCurrent";
+         classMblBtn2.value = "navMblCurrent";
+         classMblBtn3.value = "navMblNotCurrent";
+         router.push('/archieved')
+     }
+     break;
+      case 3: {
+         classMblBtn1.value = "navMblNotCurrent";
+         classMblBtn2.value = "navMblNotCurrent";
+         classMblBtn3.value = "navMblCurrent";
+         router.push('/completed')
+     }
+     break;
+      default:{
+        classMblBtn1.value = "navCurrent";
+        classMblBtn2.value = "navMblNotCurrent";
+        classMblBtn3.value = "navMblNotCurrent";
+        router.push('/')
+     }
+  }
+  }
 </script>
 
 <style>

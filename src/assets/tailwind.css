@@ -80,3 +80,11 @@
 .navNotCurrent{
     @apply text-gray-500 hover:bg-cyan-100 px-3 py-2 rounded-md text-sm font-medium
 }
+
+.navMblCurrent{
+    @apply  bg-cyan-600 text-white block px-3 py-2 rounded-md text-base font-medium
+}
+
+.navMblNotCurrent{
+    @apply text-gray-500 hover:bg-cyan-100 hover:text-gray-500  block px-3 py-2 rounded-md text-base font-medium
+}
