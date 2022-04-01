@@ -3,7 +3,7 @@
         <p class="focus:ring-0 appearance-none bg-transparent border-none w-full mr-3 py-1 px-2 leading-tight focus:border-none overflow-hidden" aria-label="Full name">{{taskTextProp}}</p>
         <p class="text-green-500">|</p>
         <p type="time" class="w-32 text-center focus:ring-0 appearance-none mobile:text-sm bg-transparent border-none px-0 py-1 leading-tight">{{taskTimeProp.substring(0, taskTimeProp.length-3)}}</p>
-        <button @click="isUnarchieved(taskIdProp)" v-tooltip="'Unarchive'" class="flex-shrink-0 border-transparent border-4 text-gray-500 hover:text-cyan-800 text-sm rounded" type="button">
+        <button @click="isUnarchieved(taskIdProp)" v-tooltip="'Unarchive'" class="flex-shrink-0 border-transparent border-4 text-gray-500 hover:text-green-800 text-sm rounded" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z" />
         </svg>

@@ -38,7 +38,7 @@
 }
 
 .taskClassCompleted{
-    @apply bg-green-300 border-l-8 flex items-center rounded-md border-green-500 py-2 mt-2 px-2 w-full max-w-3xl focus:bg-green-300
+    @apply bg-green-200 border-l-8 flex items-center rounded-md border-green-500 py-2 mt-2 px-2 w-full max-w-3xl focus:bg-green-300
 }
 
 .taskClassDeleted{
