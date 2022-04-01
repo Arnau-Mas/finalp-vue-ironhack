@@ -34,11 +34,11 @@ export const useTaskStore = defineStore("tasks", {
       }
       if(error) throw error;
     },
-    async updateTask(taskId, parameterToSet){
+    async updateTask(taskId, parameterToSet, result){
       if(parameterToSet=="isCompleted"){
         const { data, error } = await supabase
         .from('tasks')
-        .update({is_complete:true})
+        .update({is_complete:result})
         .match({id:taskId})
         if(data){
           return data
@@ -50,7 +50,7 @@ export const useTaskStore = defineStore("tasks", {
       if(parameterToSet=="isArchieved"){
         const { data, error } = await supabase
         .from('tasks')
-        .update({is_archieved:true})
+        .update({is_archieved:result})
         .match({id:taskId})
         if(data){
           return data

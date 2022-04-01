@@ -41,6 +41,10 @@
     @apply bg-green-300 border-l-8 flex items-center rounded-md border-green-500 py-2 mt-2 px-2 w-full max-w-3xl focus:bg-green-300
 }
 
+.taskClassDeleted{
+    @apply bg-red-300 border-l-8 flex items-center rounded-md border-red-500 py-2 mt-2 px-2 w-full max-w-3xl focus:bg-red-300
+}
+
 .taskClassError{
     @apply bg-red-300 border-l-8 flex items-center rounded-md border-red-500 py-2 mt-2 px-2 w-full max-w-3xl focus:bg-red-300
 }
