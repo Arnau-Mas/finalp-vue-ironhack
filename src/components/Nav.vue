@@ -17,7 +17,9 @@
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <router-link @click="changeNavButton"  v-for="item in navigation" :to="item.href" :key="item.name" :class="[item.current ? ' text-white border bg-cyan-500 shadow-sm' : 'text-gray-500 hover:bg-cyan-100', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+              <router-link @click="changeNavButton(1)" to="/" id="1" :class="classBtn1" aria-current='page'>Tasks</router-link>
+              <router-link @click="changeNavButton(2)" to="archieved" id="2" :class="classBtn2" aria-current='page'>Archived</router-link>
+              <router-link @click="changeNavButton(3)" to="completed" id="3" :class="classBtn3" aria-current="page">Completed</router-link>
             </div>
           </div>
         </div>
@@ -52,6 +54,9 @@
     { name: 'Archived', href: 'archieved', current: false },
     { name: 'Completed', href: 'completed', current: false },
     ]
+    let classBtn1 = ref("navCurrent")
+    let classBtn2 = ref("navNotCurrent")
+    let classBtn3 = ref("navNotCurrent")
       async function signOutApp(){
       try{
           await user.signOut();
@@ -60,9 +65,32 @@
           router.push({path:'/'})
       }
   }
-  function changeNavButton(e){
-     e.target.class = activeButton(e.target.href) 
-  }
+  function changeNavButton(id){
+     switch(id){
+      case 1: {
+         classBtn1.value = "navCurrent";
+         classBtn2.value = "navNotCurrent";
+         classBtn3.value = "navNotCurrent";
+     }
+     break;
+      case 2: {
+         classBtn1.value = "navNotCurrent";
+         classBtn2.value = "navCurrent";
+         classBtn3.value = "navNotCurrent";
+     }
+     break;
+      case 3: {
+         classBtn1.value = "navNotCurrent";
+         classBtn2.value = "navNotCurrent";
+         classBtn3.value = "navCurrent";
+     }
+     break;
+      default:{
+        classBtn1.value = "navCurrent";
+        classBtn2.value = "navNotCurrent";
+        classBtn3.value = "navNotCurrent";
+     }
+  }}
 </script>
 
 <style>
