@@ -60,5 +60,17 @@ export const useTaskStore = defineStore("tasks", {
         }
       }
     },
+    async deleteTask(taskId){
+      const { data, error } = await supabase
+        .from('tasks')
+        .delete()
+        .match({ id: taskId })
+      if(data){
+        return data;
+      }
+      if(error){
+        throw error
+      }
+    }
   },
 });
