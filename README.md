@@ -14,5 +14,4 @@ https://user-images.githubusercontent.com/80476940/161389078-ad428990-f58e-4f0c-
  - [Pinia](https://pinia.vuejs.org/introduction.html) - Pinia allows to create 'Stores' that you can access from all your components. (State)
  - [Supabase](https://supabase.com/) - A database that allows you an easy way to create, read, update and delete data, with some additions like user manage.
  - [Tailwind](https://tailwindcss.com/) - CSS framework. Rapidly build without leaving the HTML and allows you to import so many components.
-###
-###
+
