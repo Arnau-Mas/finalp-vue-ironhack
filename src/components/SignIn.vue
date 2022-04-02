@@ -1,6 +1,6 @@
 <template>
     <section>
-      <div class="min-h-full flex items-center justify-center sm:py-12 px-4 sm:px-6 lg:px-8">
+      <div class="min-h-full flex items-center justify-center mobile:pt-12 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-lg p-10 max-w-md w-full space-y-8"> <!-- shadow-md a dalt -->
           <div>
             <img class="mx-auto h-12 w-auto" src="../assets/todo-logo.png" alt="todoapp" />
