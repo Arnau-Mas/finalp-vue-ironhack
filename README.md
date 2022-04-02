@@ -4,10 +4,6 @@ Play todoapp in your browser or mobile.
 My final project **todoapp**, allows you to sign up, sign in and manage your own tasks  as you want, giving you the possibility of create, archive, complete or delete.
 
 ### Demo
-Mobile:
-https://user-images.githubusercontent.com/80476940/161389277-01abee07-d5bb-4fb1-a64a-891120136781.mp4
-
-Desktop:
 https://user-images.githubusercontent.com/80476940/161389078-ad428990-f58e-4f0c-b0aa-d4444128f501.mp4
 
 ### Built with 🛠️
