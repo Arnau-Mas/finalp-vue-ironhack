@@ -86,7 +86,18 @@
                             Sign in
                         </button>
                     </div>
-
+                    <div v-if="infoMessage" id="alert-1" class="flex p-4 mb-4 bg-cyan-100 rounded-lg dark:bg-cyan-200" role="alert">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="text-cyan-700 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div v-if="infoMessage" class="ml-3 text-sm font-medium text-cyan-700 dark:text-cyan-800">
+                            This is a test email in case you don't want to register.
+                        </div>
+                        <button @click="closeInfoMessage" type="button" class="ml-auto -mx-1.5 -my-1.5 bg-cyan-100 text-cyan-500 rounded-lg focus:ring-2 focus:ring-cyan-400 p-1.5 hover:bg-cyan-200 inline-flex h-8 w-8 dark:bg-cyan-200 dark:text-cyan-600 dark:hover:bg-blue-300" data-dismiss-target="#alert-1" aria-label="Close">
+                            <span class="sr-only">Close</span>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
                     <AlertMessage
                         :messageClass="'errorMsg'"
                         :alertMessage="alertMessage"
@@ -132,6 +143,7 @@
   let passwordData = ref("123456");
   let alertMessage = ref("Introduce valid email or password.");
   let classBtn = ref("signInBtn");
+  let infoMessage = ref(true)
 
   async function joinApp() {
       doesntExist.value = false;
@@ -167,6 +179,10 @@
       }, 1500);
       doesntExist.value = true;
       alertMessage.value = "Functionality not availaible yet!";
+  }
+
+  function closeInfoMessage(){
+      infoMessage.value = false;
   }
 </script>
 
