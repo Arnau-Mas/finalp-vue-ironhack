@@ -128,8 +128,8 @@
   let buttonText = "Sign Up";
   let isShown = ref(true);
   let doesntExist = ref(false);
-  let emailData = ref("");
-  let passwordData = ref("");
+  let emailData = ref("trialtodoapp@gmail.com");
+  let passwordData = ref("123456");
   let alertMessage = ref("Introduce valid email or password.");
   let classBtn = ref("signInBtn");
 
